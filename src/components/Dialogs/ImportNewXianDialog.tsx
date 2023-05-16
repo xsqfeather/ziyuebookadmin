@@ -2,6 +2,7 @@ import {
   Button,
   CircularProgress,
   Dialog,
+  DialogActions,
   DialogContent,
   DialogTitle,
   Divider,
@@ -17,16 +18,26 @@ export default function ImportNewXianDialog() {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const handleImportClick = async () => {
-    setUploading(true);
-    const fileDto = new FormData();
-    fileDto.append("file", file as any);
-    await addProductsFromXianExcel(fileDto);
-    setUploading(false);
-    setOpen(false);
+    try {
+      setUploading(true);
+      const fileDto = new FormData();
+      fileDto.append("file", file as any);
+      await addProductsFromXianExcel(fileDto);
+      setUploading(false);
+      setOpen(false);
+    } catch (error) {
+      console.error(error);
+      setUploading(false);
+    }
   };
   return (
     <>
-      <Dialog open={open}>
+      <Dialog
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
         <DialogTitle>把闲管家商品导入</DialogTitle>
         <DialogContent>
           {uploading ? (
@@ -78,16 +89,25 @@ export default function ImportNewXianDialog() {
               height: 20,
             }}
           />
-          <br />
+        </DialogContent>
+        <DialogActions>
           <Button
+            color="secondary"
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            取消
+          </Button>
+          <Button
+            color="primary"
             disabled={uploading}
             onClick={handleImportClick}
-            fullWidth
             variant="outlined"
           >
             确认导入
           </Button>
-        </DialogContent>
+        </DialogActions>
       </Dialog>
       <Button
         onClick={() => {
