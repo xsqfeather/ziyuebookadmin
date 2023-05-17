@@ -21,6 +21,7 @@ import products from "./resources/products";
 import av_posts from "./resources/av_posts";
 import product_categories from "./resources/product_categories";
 import products_on_xian_on_sale from "./resources/products_on_xian_on_sale";
+import products_on_xian_banned from "./resources/products_on_xian_banned";
 
 const i18nProvider = polyglotI18nProvider((locale) => {
   if (locale === "en") {
@@ -72,10 +73,9 @@ function App() {
       />
       <Resource
         name="products_on_xian_banned"
-        list={products.list}
-        icon={products.icon}
-        show={products.show}
-        edit={products.edit}
+        list={products_on_xian_banned.list}
+        icon={products_on_xian_banned.icon}
+        create={products_on_xian_banned.create}
       />
       <Resource
         name="tenants"

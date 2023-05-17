@@ -563,6 +563,12 @@ const customChineseMessages: TranslationMessages = {
     },
     products_on_xian_banned: {
       name: "闲鱼禁售产品 |||| 闲鱼禁售产品列表",
+      fields: {
+        id: "产品ID",
+        name: "产品名称",
+        "bookData.isbn": "ISBN",
+        isbn: "ISBN",
+      },
     },
     products: {
       name: "所有产品 |||| 产品列表",

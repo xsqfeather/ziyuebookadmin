@@ -74,7 +74,7 @@ export default function AsyncToXianDialog(props: {
           record.xian?.images ||
           (record.images.length === 0 ? [record.cover] : record.images),
         item_biz_type: record.xian?.item_biz_type || 2,
-        price: +record.xian?.price.toFixed(0) || +record.price.toFixed(0),
+        price: +record.xian?.price?.toFixed(0) || +record.price?.toFixed(0),
         sp_biz_type: record.xian?.sp_biz_type || 24,
         stock: record.xian?.stock || 99,
       });
