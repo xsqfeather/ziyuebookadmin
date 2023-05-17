@@ -24,7 +24,7 @@ export default function AddBannedProductsInput(props: { resource?: string }) {
       setLoading(false);
       refresh();
       unselectAll();
-      notify(selectedIds.length + "本书已经加入发布队列");
+      notify(selectedIds.length + "本书已经加入违禁");
     } catch (error: any) {
       console.log(error);
       setLoading(false);

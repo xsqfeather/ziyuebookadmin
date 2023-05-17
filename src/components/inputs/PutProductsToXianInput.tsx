@@ -21,7 +21,7 @@ export default function PutProductsToXianInput(props: { resource?: string }) {
       setLoading(false);
       refresh();
       unselectAll();
-      notify(selectedIds.length + "本书已经加入违禁");
+      notify(selectedIds.length + "本书已经加入发布队列");
     } catch (error: any) {
       console.log(error);
       setLoading(false);
