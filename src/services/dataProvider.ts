@@ -89,6 +89,21 @@ export const publishRecordsToXian = async (data: any) => {
   return res.data;
 };
 
+export const addXianBannedBooks = async (data: any) => {
+  const token = window.localStorage.getItem("admin_token");
+  axios.defaults.headers.common["authorization"] = token?.toString();
+  const controller = new AbortController();
+  GlobalControllers.push(controller);
+  const res = await axios.post(
+    `${import.meta.env.VITE_API_URL}/products_on_xian_banned/many`,
+    data,
+    {
+      signal: controller.signal,
+    }
+  );
+  return res.data;
+};
+
 export const publishManyToXian = async (data: any) => {
   const token = window.localStorage.getItem("admin_token");
   axios.defaults.headers.common["authorization"] = token?.toString();

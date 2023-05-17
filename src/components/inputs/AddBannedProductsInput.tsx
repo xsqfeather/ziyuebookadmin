@@ -1,6 +1,9 @@
 import { Backdrop, Button, CircularProgress, Typography } from "@mui/material";
 import { useState } from "react";
-import { publishRecordsToXian } from "../../services/dataProvider";
+import {
+  addXianBannedBooks,
+  publishRecordsToXian,
+} from "../../services/dataProvider";
 import {
   useListContext,
   useNotify,
@@ -8,7 +11,7 @@ import {
   useUnselectAll,
 } from "react-admin";
 
-export default function PutProductsToXianInput(props: { resource?: string }) {
+export default function AddBannedProductsInput(props: { resource?: string }) {
   const [loading, setLoading] = useState(false);
   const { selectedIds } = useListContext();
   const refresh = useRefresh();
@@ -17,11 +20,11 @@ export default function PutProductsToXianInput(props: { resource?: string }) {
   const handleBulkPutProductsToXian = async () => {
     try {
       setLoading(true);
-      await publishRecordsToXian({ productIds: selectedIds });
+      await addXianBannedBooks({ productIds: selectedIds });
       setLoading(false);
       refresh();
       unselectAll();
-      notify(selectedIds.length + "本书已经加入违禁");
+      notify(selectedIds.length + "本书已经加入发布队列");
     } catch (error: any) {
       console.log(error);
       setLoading(false);
@@ -42,10 +45,10 @@ export default function PutProductsToXianInput(props: { resource?: string }) {
       </Backdrop>
       <Button
         variant="contained"
-        color="primary"
+        color="error"
         onClick={handleBulkPutProductsToXian}
       >
-        发布到闲管家
+        添加到闲鱼违禁书库
       </Button>
     </>
   );

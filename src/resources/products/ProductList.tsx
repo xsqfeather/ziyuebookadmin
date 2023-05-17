@@ -29,6 +29,7 @@ import AsyncToXianDialog from "../../components/Dialogs/AsyncToXianDialog";
 import AdjustPriceDialogInput from "../../components/inputs/AdjustPriceDialogInput";
 import AdjustPricesDialogInput from "../../components/inputs/AdjustPricesDialogInput";
 import PutProductsToXianInput from "../../components/inputs/PutProductsToXianInput";
+import AddBannedProductsInput from "../../components/inputs/AddBannedProductsInput";
 
 const XianProductStatusText: any = {
   "-1": "待售后",
@@ -43,17 +44,7 @@ const XianProductStatusText: any = {
 
 const ProductBulkActionButtons = () => (
   <>
-    <AdjustPricesDialogInput label="批量调价" />
-    <PutProductsToXianInput />
-    <Button
-      variant="contained"
-      color="error"
-      onClick={() => {
-        console.log("敬请期待");
-      }}
-    >
-      移动到违禁书库
-    </Button>
+    <AddBannedProductsInput />
   </>
 );
 
