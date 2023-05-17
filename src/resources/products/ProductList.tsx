@@ -48,7 +48,7 @@ const ProductBulkActionButtons = () => (
   <>
     <PutProductsToXianInput />
     <AddBannedProductsInput />
-    <DeleteButton />
+    <BulkDeleteButton />
   </>
 );
 
