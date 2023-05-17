@@ -30,6 +30,7 @@ import AdjustPriceDialogInput from "../../components/inputs/AdjustPriceDialogInp
 import AdjustPricesDialogInput from "../../components/inputs/AdjustPricesDialogInput";
 import PutProductsToXianInput from "../../components/inputs/PutProductsToXianInput";
 import AddBannedProductsInput from "../../components/inputs/AddBannedProductsInput";
+import { Publish } from "@mui/icons-material";
 
 const XianProductStatusText: any = {
   "-1": "待售后",
@@ -44,6 +45,7 @@ const XianProductStatusText: any = {
 
 const ProductBulkActionButtons = () => (
   <>
+    <PutProductsToXianInput />
     <AddBannedProductsInput />
   </>
 );
