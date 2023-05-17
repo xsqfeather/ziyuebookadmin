@@ -14,6 +14,7 @@ import {
   useResourceContext,
   useRefresh,
   BulkDeleteButton,
+  DeleteButton,
 } from "react-admin";
 
 import {
@@ -47,6 +48,7 @@ const ProductBulkActionButtons = () => (
   <>
     <PutProductsToXianInput />
     <AddBannedProductsInput />
+    <DeleteButton />
   </>
 );
 
