@@ -71,6 +71,7 @@ export const publishToXian = async (data: any) => {
       signal: controller.signal,
     }
   );
+  console.log({ res });
   return res.data;
 };
 
